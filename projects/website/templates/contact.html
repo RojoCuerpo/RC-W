@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %} Get in touch {% endblock %}
+
+{% block navbar %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('about')}}">About Us</a></li>
+</ul>
+{% endblock %}
+
+
+{% block body %}
+
+
+{% if not sent: %}
+<div class="t-s-bundle">
+  <h3 class="titles">Contact</h3>
+  <h6 class="subtitles">Let's have a conversation</h6>
+</div>
+
+<div class="t-s-bundle">
+
+    <form action="{{url_for('contact')}}" method="post">
+
+      <div class="mb-3 form-template">
+        <label for="name" class="form-label">Your name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Cosme Fulanito"
+        name="name" required="required">
+      </div>
+
+      <div class="mb-3 form-template">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="something@example" name="email" required="required">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <div class="mb-3 form-message">
+        <label for="message" class="form-label">Your message</label>
+          <div class="input-group">
+            <textarea class="form-control message" aria-label="With textarea" id="message"
+                      name="message" placeholder="What you want to say?" required="required"></textarea>
+          </div>
+      </div>
+
+      <button type="submit" class="btn btn-dark">Submit</button>
+
+    </form>
+
+</div>
+{% endif %}
+
+{% if sent: %}
+<div class="t-s-bundle" style="margin-bottom: 250px;">
+    <h3 class="titles">Thank You!</h3>
+    <h6 class="subtitles">Your message has been received. We'll be in contact as soon as possible.</h6>
+
+</div>
+
+
+{% endif %}
+
+
+{% endblock %}
+

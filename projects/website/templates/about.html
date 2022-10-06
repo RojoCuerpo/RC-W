@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} About Us {% endblock %}
+
+{% block navbar %}
+<ul class="navbar-nav ms-auto">
+
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('contact')}}">Contact</a></li>
+</ul>
+{% endblock %}
+
+{% block body %}
+<div class="t-s-bundle">
+<h3 class="titles">About us</h3>
+<h6 class="subtitles">Know a little about what we do</h6>
+</div>
+    <div class="card">
+        <div class="card-body smol-card card-about-body">
+                    <img class="img-card" src="static/assets/img/Artboard.png">
+        </div>
+        <div class="card-text">
+            <div class="row">
+                <div class="col">
+                    <p class="" align="justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel sapien aliquam, ultrices arcu sit amet,
+                    consectetur ipsum. Donec dapibus pharetra euismod. Phasellus non mollis ipsum. Donec efficitur hendrerit
+                    consequat. Nulla tempus ut diam non congue. Etiam odio nibh, interdum quis ullamcorper id, hendrerit sit
+                    amet augue. Pellentesque et rhoncus ligula, sed varius mi. Morbi sed dui euismod nisi maximus elementum.
+                    Nunc lorem tellus, tincidunt eu congue id, dictum non eros. Ut sed turpis vel justo vehicula efficitur
+                    vitae in ipsum. Nunc dapibus risus eu urna ultricies malesuada at non orci. </p>
+
+                </div>
+                <div class="col">
+                    <p class="" align="justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel sapien aliquam, ultrices arcu sit amet,
+                    consectetur ipsum. Donec dapibus pharetra euismod. Phasellus non mollis ipsum. Donec efficitur hendrerit
+                    consequat. Nulla tempus ut diam non congue. Etiam odio nibh, interdum quis ullamcorper id, hendrerit sit
+                    amet augue. Pellentesque et rhoncus ligula, sed varius mi. Morbi sed dui euismod nisi maximus elementum.
+                    Nunc lorem tellus, tincidunt eu congue id, dictum non eros. Ut sed turpis vel justo vehicula efficitur
+                    vitae in ipsum. Nunc dapibus risus eu urna ultricies malesuada at non orci. </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

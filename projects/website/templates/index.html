@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block title %}RC - Home {% endblock %}
+
+{% block navbar %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('about')}}">About Us</a></li>
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('contact')}}">Contact</a></li>
+</ul>
+{% endblock %}
+
+{% block body %}
+
+<div class="t-s-bundle">
+<h3 class="titles">Welcome</h3>
+<h6 class="subtitles">This is a test website</h6>
+</div>
+
+<div class="main-intro">
+    <p align="justify">In the next slides you can see screenshots of the code that builds it.
+These feature a Flask server, HTML code that incorporates the Bootstrap framework, as well as a CSS style sheet.
+In combination, all of these files make this site work. More details below.</p>
+</div>
+
+<!-- server-odd -->
+<div class="row justify-content-around row-explanation">
+
+    <h6 class="mini-subtitles" style="padding: 0;"><b>server.py</b></h6>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-odd" align="justify">
+                On the side of the server, we begin by importing the necessary packages, such as <b>Flask, SQL</b> and
+                <b>Datetime.</b>
+                <br>
+                Then we create the model for the SQL database that will help us manage communications from the users.
+                <br>
+                Finally come the routes that will give access to the different pages on our website.
+                <br>
+                In the rout '/about' we use the db model along with the request method to catch the info and message from
+                the user's communication. And finally we add it into the db.
+            </p>
+        </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='server', ext='py')}}">
+                        <img class="img-card" src="static/assets/img/screens/server.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<!-- base-even -->
+<div class="row justify-content-around row-explanation">
+
+    <div class="row justify-content-end" style="padding: 0;">
+        <h6 class="mini-subtitles col-md-1" align="right"><b>base.html</b></h6>
+    </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='base', ext='html')}}">
+                        <img class="img-card" src="static/assets/img/screens/base.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-2 text-explanation">
+        <p class="card-paragraph-even" align="justify">
+            This one starts by importing the <b>Boostrap</b> framework and the necessary <b>JavaScript</b> script to
+            make the site look and work beautifully without too much effort.
+            <br>
+            Note the creation of several <b>"blocks"</b>, this will aid us in adapting the content of the pages while keeping
+            a consistent design throughout the site. These blocks work through a templating language called <b>Jinja</b>,
+            which is embedded inside of Flask, so no need to import it in the server.py.
+            <br>
+            The footer can be outside the "blocks" since it will be the same in every page.
+
+
+        </p>
+    </div>
+
+</div>
+
+<!-- index-odd -->
+<div class="row justify-content-around row-explanation">
+
+    <h6 class="mini-subtitles"><b>index.html</b></h6>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-odd" align="justify">
+                This is by far the busiest file on the site. It starts by extending the base.html template; doing this we
+                can save many lines of code because the styles and script comes from there and also be able to open the blocks.
+            <br>
+                Inside these blocks we can then take advantage of Bootstrap to create a fully functional carousel with buttons
+                and indicators, as well as a set of cards that display these very images and descriptions, all of this in a
+                time-saving manner. The magic of working with Flask, Jinja, and Bootstrap in conjunction.
+            </p>
+        </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='index', ext='html')}}">
+                        <img class="img-card" src="static/assets/img/screens/index.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<!-- about-even -->
+<div class="row justify-content-around row-explanation">
+
+    <div class="row justify-content-end" style="padding: 0;">
+        <h6 class="mini-subtitles col-md-1"  align="right"><b>about.html</b></h6>
+    </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='about', ext='html')}}">
+                        <img class="img-card" src="static/assets/img/screens/about.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-even" align="justify">
+                This one consists on a card similar to the ones used in the index, but with a proportion that favors the
+                image.
+            </p>
+        </div>
+
+</div>
+
+<!-- contact-odd -->
+<div class="row justify-content-around row-explanation">
+
+    <h6 class="mini-subtitles" style="padding: 0;"><b>contact.html</b></h6>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-odd" align="justify">
+                In contact we use Bootstrap to create a simple, yet pretty-looking form that allows the user to write and
+                send a message after filling the fields. The info is caught and sent to the server using a <b>"POST"</b>
+                method, allowing the server to create a new entry on the database that manages communications. Check
+                <b>server.py</b>
+                <br>
+                This page changes its display after the user has sent a message, making it more adaptable. This is done by
+                implementing some <b>Python</b> code inside the html code, with the help of the <b>Jinja</b> templating capabilities.
+            </p>
+        </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='contact', ext='html')}}">
+                        <img class="img-card" src="static/assets/img/screens/contact.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<!-- styles-even -->
+<div class="row justify-content-around row-explanation">
+
+    <div class="row justify-content-end" style="padding: 0;">
+        <h6 class="mini-subtitles col-md-1"  align="right"><b>styles.css</b></h6>
+    </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('carousel', image='styles', ext='css')}}">
+                        <img class="img-card" src="static/assets/img/screens/styles.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-even" align="justify">
+                Although Bootstrap is great, more often than not you'll need to twick its default styles to get the
+                perfect look and feel to your project. To do so, we created a <b>CSS</b> styles sheet that keeps elements
+                of the design (such as margins and paddings), as well as the look consistent throughout the site.
+                <br>
+                Special attention was placed on the fields of the <b>Contact form</b>, given the fact that the default
+                shadows and focus of Bootstrap Forms are of a blue-ish hue.
+            </p>
+        </div>
+
+</div>
+
+
+<div class="row justify-content-end row-explanation">
+
+       <a class="col-md-2 button ms-auto" href="{{url_for('root')}}">
+           <button type="button" class="btn btn-outline-dark ">Back to top</button>
+       </a>
+
+</div>
+
+
+
+
+
+
+{% endblock %}

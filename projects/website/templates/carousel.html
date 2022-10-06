@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} In depth {% endblock %}
+
+{% block navbar %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('about')}}">About Us</a></li>
+    <li class="nav-item ms-auto"><a class="nav-link active" aria-current="page"
+                                    href="{{url_for('contact')}}">Contact</a></li>
+</ul>
+{% endblock %}
+
+{% block body %}
+
+<div class="t-s-bundle">
+<h3 class="titles">{{tlt}}</h3>
+</div>
+
+<div class="card">
+    <div class="card-body smol-card">
+        <img class="img-card" src="{{render}}">
+    </div>
+</div>
+
+<div class="row justify-content-end row-explanation">
+
+       <a class="col-md-1 button ms-auto" href="{{url_for('root')}}">
+           <button type="button" class="btn btn-outline-dark button-back">Back</button>
+       </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,166 @@
+.main-container{
+    padding-bottom: 25px;
+}
+
+.t-s-bundle{
+    margin: 24px 8px;
+}
+
+.t-s-bundle-2{
+    margin: 64px 8px 32px 8px;
+}
+
+.main-intro{
+    margin: 0 8px 24px 8px
+}
+.card-body{
+    padding: 8px;
+}
+
+.smol-card{
+    padding: 4px;
+}
+
+.c-img{
+object-fit: cover;
+}
+
+.c-indicator{
+    margin-bottom: 4px;
+}
+
+.c-caption{
+    padding-bottom: 5px;
+}
+
+.c-paragraph{
+    margin-bottom: 0px;
+}
+
+.titles{
+    margin-bottom: 0;
+}
+
+.subtitles{
+    margin-bottom: 0;
+}
+
+.mini-subtitles{
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.paragraph-about{
+    margin-left: 8px;
+    margin-right: 8px;
+    width: 600px;
+    align: justify;
+}
+
+.paragraph{
+    margin: 0px 8px 24px 8px;
+}
+
+.paragraph-odd{
+    margin-left: 8px;
+    margin-right: 16px;
+}
+
+.paragraph-even{
+    margin-left: 16px;
+    margin-right: 8px;
+}
+
+.monogram{
+    height: 40px;
+}
+
+.explanation{
+    margin: 8px;
+    padding: 0;
+}
+
+.text-explanation{
+    width: 30%;
+    padding: 0;
+}
+
+.img-explanation{
+    width: 70%;
+    padding: 0;
+}
+
+.img-card{
+    width: 100%;
+}
+
+.row-explanation{
+    margin: 0px 8px 64px 8px
+}
+
+.card-paragraph-odd{
+    margin-right: 16px;
+}
+
+.card-paragraph-even{
+    margin-left: 16px;
+}
+
+
+.text-about{
+    width: 30%;
+    padding: 0;
+}
+
+.img-about{
+    width: 70%;
+    padding: 0;
+}
+
+.button{
+    padding: 0px;
+}
+
+.form-template{
+    width: 30%;
+}
+
+.form-message{
+    width: 50%;
+    height: 30%;
+}
+
+.col{
+    width: 45%;
+}
+
+.card-text{
+    padding: 8px;
+}
+
+.carousel-caption{
+    padding: 0;
+}
+
+.button-back{
+    margin-top: 64px;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="checkbox"]:focus,
+.uneditable-input:focus,
+.message:focus{
+      color: black;
+      border-color: rgba(184, 185, 186);
+      box-shadow: 0 0 0 0 rgba(184, 185, 186) inset, 0 0 10px rgba(184, 185, 186);
+      outline: 10;
+}
+
+input[type="checkbox"]:checked{
+    background: rgba(56, 56, 56);
+    border-color: rgba(184, 185, 186);
+    box-shadow: 0 0 0 0 rgba(184, 185, 186) inset, 0 0 10px rgba(184, 185, 186);
+    outline: 10;
+}
