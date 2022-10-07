@@ -8,25 +8,23 @@ from datetime import datetime
 today = datetime.today()
 the_year = today.year
 
+app = Flask(__name__)
 
-def create_app():
-    app = Flask(__name__)
-    with app.app_context():
-        app.secret_key = os.environ.get('SERVER_KEY')
-        app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///all_messages.db"
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        db = SQLAlchemy(app)
+app.secret_key = os.environ.get('SERVER_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///all_messages.db"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-        class Message(db.Model):
-            index = db.Column(db.Integer, primary_key=True)
-            date = db.Column(db.String(250), unique=False, nullable=False)
-            name = db.Column(db.String(250), nullable=False)
-            email = db.Column(db.String(100), nullable=False)
-            message = db.Column(db.String(5000), nullable=False)
 
-        db.create_all()
+class Message(db.Model):
+    index = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.String(250), unique=False, nullable=False)
+    name = db.Column(db.String(250), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    message = db.Column(db.String(5000), nullable=False)
 
-    return app
+
+db.create_all()
 
 
 @app.route('/')
