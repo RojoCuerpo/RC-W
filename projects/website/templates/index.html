@@ -37,14 +37,14 @@ In combination, all of these files make this site work. More details below.</p>
                 <br>
                 Finally come the routes that will give access to the different pages on our website.
                 <br>
-                In the rout '/about' we use the db model along with the request method to catch the info and message from
+                In the route '/contact' we use the db model along with the request method to catch the info and message from
                 the user's communication. And finally we add it into the db.
             </p>
         </div>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='server', ext='py')}}">
+                    <a href="{{url_for('display', image='server', ext='py')}}">
                         <img class="img-card" src="static/assets/img/screens/server.png">
                     </a>
                 </div>
@@ -62,7 +62,7 @@ In combination, all of these files make this site work. More details below.</p>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='base', ext='html')}}">
+                    <a href="{{url_for('display', image='base', ext='html')}}">
                         <img class="img-card" src="static/assets/img/screens/base.png">
                     </a>
                 </div>
@@ -75,7 +75,7 @@ In combination, all of these files make this site work. More details below.</p>
             <br>
             Note the creation of several <b>"blocks"</b>, this will aid us in adapting the content of the pages while keeping
             a consistent design throughout the site. These blocks work through a templating language called <b>Jinja</b>,
-            which is embedded inside of Flask, so no need to import it in the server.py.
+            which is embedded inside of Flask, so no need to import it in the server.
             <br>
             The footer can be outside the "blocks" since it will be the same in every page.
 
@@ -92,17 +92,18 @@ In combination, all of these files make this site work. More details below.</p>
     <div class="col-md-2 text-explanation">
             <p class="card-paragraph-odd" align="justify">
                 This is by far the busiest file on the site. It starts by extending the base.html template; doing this we
-                can save many lines of code because the styles and script comes from there and also be able to open the blocks.
+                can save many lines of code because the styles and script comes from there. Also, via the base.html, we are
+                able to open the <b>blocks</b> to make the code more adaptable.
             <br>
-                Inside these blocks we can then take advantage of Bootstrap to create a fully functional carousel with buttons
-                and indicators, as well as a set of cards that display these very images and descriptions, all of this in a
-                time-saving manner. The magic of working with Flask, Jinja, and Bootstrap in conjunction.
+                Inside these blocks we can then take advantage of Bootstrap to create a fully functional set of cards 
+                that render various images and their descriptions, as well as containing links to a <b>display</b> page
+                that expands the view of each image.
             </p>
         </div>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='index', ext='html')}}">
+                    <a href="{{url_for('display', image='index', ext='html')}}">
                         <img class="img-card" src="static/assets/img/screens/index.png">
                     </a>
                 </div>
@@ -120,7 +121,7 @@ In combination, all of these files make this site work. More details below.</p>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='about', ext='html')}}">
+                    <a href="{{url_for('display', image='about', ext='html')}}">
                         <img class="img-card" src="static/assets/img/screens/about.png">
                     </a>
                 </div>
@@ -141,7 +142,7 @@ In combination, all of these files make this site work. More details below.</p>
     <h6 class="mini-subtitles" style="padding: 0;"><b>contact.html</b></h6>
     <div class="col-md-2 text-explanation">
             <p class="card-paragraph-odd" align="justify">
-                In contact we use Bootstrap to create a simple, yet pretty-looking form that allows the user to write and
+                In <b>contact</b> we use Bootstrap to create a simple, yet pretty-looking form that allows the user to write and
                 send a message after filling the fields. The info is caught and sent to the server using a <b>"POST"</b>
                 method, allowing the server to create a new entry on the database that manages communications. Check
                 <b>server.py</b>
@@ -153,7 +154,7 @@ In combination, all of these files make this site work. More details below.</p>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='contact', ext='html')}}">
+                    <a href="{{url_for('display', image='contact', ext='html')}}">
                         <img class="img-card" src="static/assets/img/screens/contact.png">
                     </a>
                 </div>
@@ -162,23 +163,48 @@ In combination, all of these files make this site work. More details below.</p>
 
 </div>
 
-<!-- styles-even -->
+<!-- display-even -->
 <div class="row justify-content-around row-explanation">
 
     <div class="row justify-content-end" style="padding: 0;">
-        <h6 class="mini-subtitles col-md-1"  align="right"><b>styles.css</b></h6>
+        <h6 class="mini-subtitles col-md-1"  align="right"><b>display.html</b></h6>
     </div>
     <div class="col-md-2 img-explanation">
             <div class="card">
                 <div class="card-body smol-card">
-                    <a href="{{url_for('carousel', image='styles', ext='css')}}">
-                        <img class="img-card" src="static/assets/img/screens/styles.png">
+                    <a href="{{url_for('display', image='display', ext='html')}}">
+                        <img class="img-card" src="static/assets/img/screens/display.png">
                     </a>
                 </div>
             </div>
         </div>
     <div class="col-md-2 text-explanation">
             <p class="card-paragraph-even" align="justify">
+                Finally we have a <b>display</b> page that mutates to render any image you click on. This is, again, greatly
+                aided by <b>Jinja</b>.
+                <br>
+                It starts by collecting and sending the parameters <b>'image'</b> and <b>'ext'</b>  when an image is clicked,
+                into the <b>'display'</b>  function on the server; then we adapt a couple of variables with these params
+                to locate the right image and give the correct title to the display; and finally these new params are
+                sent to the <b>render_template</b>.
+                <br>
+                Check the route <b>'display'</b>  on <b>server.py</b> to see the entire process and
+                the solution we found to make it adaptable to each image and save some lines of code.
+            </p>
+        </div>
+
+</div>
+
+
+
+<!-- styles-odd -->
+<div class="row justify-content-around row-explanation">
+
+    <div class="row justify-content-end" style="padding: 0;">
+        <h6 class="mini-subtitles col-md-1"  align="right"><b>styles.css</b></h6>
+    </div>
+    <div class="col-md-2 text-explanation">
+            <p class="card-paragraph-odd" align="justify">
                 Although Bootstrap is great, more often than not you'll need to twick its default styles to get the
                 perfect look and feel to your project. To do so, we created a <b>CSS</b> styles sheet that keeps elements
                 of the design (such as margins and paddings), as well as the look consistent throughout the site.
@@ -187,10 +213,19 @@ In combination, all of these files make this site work. More details below.</p>
                 shadows and focus of Bootstrap Forms are of a blue-ish hue.
             </p>
         </div>
+    <div class="col-md-2 img-explanation">
+            <div class="card">
+                <div class="card-body smol-card">
+                    <a href="{{url_for('display', image='styles', ext='css')}}">
+                        <img class="img-card" src="static/assets/img/screens/styles.png">
+                    </a>
+                </div>
+            </div>
+        </div>
 
 </div>
 
-
+<!-- back button -->
 <div class="row justify-content-end row-explanation">
 
        <a class="col-md-2 button ms-auto" href="{{url_for('root')}}">

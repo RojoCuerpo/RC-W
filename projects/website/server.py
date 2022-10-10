@@ -7,9 +7,7 @@ from datetime import datetime
 
 today = datetime.today()
 the_year = today.year
-
 app = Flask(__name__)
-
 app.secret_key = os.environ.get('SERVER_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///all_messages.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -24,7 +22,8 @@ class Message(db.Model):
     message = db.Column(db.String(5000), nullable=False)
 
 
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 
 @app.route('/')
@@ -53,12 +52,10 @@ def contact():
 
 
 @app.route('/show/<image>.<ext>')
-def carousel(image, ext):
+def display(image, ext):
     title = f'{image}.{ext}'
-    print(image)
-    print(ext)
     img = f"/static/assets/img/screens/{image}.png"
-    return render_template('carousel.html', render=img, tlt=title)
+    return render_template('display.html', render=img, tlt=title)
 
 
 if __name__ == '__main__':

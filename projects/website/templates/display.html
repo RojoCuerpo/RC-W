@@ -12,23 +12,18 @@
 {% endblock %}
 
 {% block body %}
-
 <div class="t-s-bundle">
 <h3 class="titles">{{tlt}}</h3>
 </div>
-
 <div class="card">
     <div class="card-body smol-card">
         <img class="img-card" src="{{render}}">
     </div>
 </div>
-
 <div class="row justify-content-end row-explanation">
 
        <a class="col-md-1 button ms-auto" href="{{url_for('root')}}">
            <button type="button" class="btn btn-outline-dark button-back">Back</button>
        </a>
-
 </div>
-
 {% endblock %}
