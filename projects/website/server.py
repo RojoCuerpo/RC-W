@@ -7,15 +7,10 @@ from datetime import datetime
 
 today = datetime.today()
 the_year = today.year
-
 app = Flask(__name__)
-
 app.secret_key = os.environ.get('SERVER_KEY')
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
-
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///all_messages.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 db = SQLAlchemy(app)
 
 
